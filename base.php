@@ -93,7 +93,7 @@
         </aside><!-- /.sidebar -->
       <?php endif; ?>
       <main class="main <?php echo roots_main_class(); ?>" role="main">
-        <?php  include roots_template_path(); ?>
+        <?php  //include roots_template_path(); ?>
       </main><!-- /.main -->
 
     </div><!-- /.content -->

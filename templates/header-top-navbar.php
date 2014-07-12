@@ -34,7 +34,7 @@ $("#searchform input").on('blur', function(){
        <span></span><span></span><span></span>
 
       </div>
-      <h1><a href="<?php echo site_url(); ?>">Collide Halifax</a></h1>
+      <h1><a href="<?php echo site_url(); ?>"><?php bloginfo('name'); ?></a></h1>
 
     </div>
 
@@ -71,6 +71,9 @@ if( is_search() || is_404() ){
         endif;
       ?>
     </nav>
+
+    
+
 
     </div>
 </header>
