@@ -6,50 +6,13 @@
 // new image Sizes
 
 add_image_size( 'featured', 1600, 600, true);
-add_image_size( 'profilepic', 220, 180 );
-add_image_size( 'newsitem', 760, 544, true);
-add_image_size( 'ads', 300, 250, true );
-
-
-register_nav_menus(array(
-	'secondary_nav' => __('Secondary Navigation', 'roots')
-));
+add_image_size( 'sponsor', 280, 175, true );
 
 /** 
 /* RESGISTER POST TYPES
 **/
 
 function create_post_types(){
-
-/*
-register_post_type('news', 
-	array(
-		'labels'	=> array(
-			'name' 			=> __('News'),
-			'singular_name'	=> __('News')
-			),
-		'public'		=> true,
-		'has_archive'	=> true,
-		'menu_position'	=> 5,
-		'publicly_queryable' => true,
-		'supports' => array('title', 'excerpt', 'editor', 'thumbnail', 'revisions')
-	)
-);
-*/
-
-register_post_type('advertisement',
-	array(
-		'labels'	=> array(
-			'name' 			=> __('Advertisements'),
-			'singular_name'	=> __('Advertisement')
-			),
-		'public'		=> true,
-		'has_archive'	=> true,
-		'menu_position'	=> 5,
-		'publicly_queryable' => true,
-		'supports' => array('title', 'thumbnail', 'revisions')
-	)
-);
 
 register_post_type('featured',
 	array(
@@ -64,6 +27,35 @@ register_post_type('featured',
 		'supports' => array('title', 'thumbnail', 'revisions')
 	)
 );
+
+register_post_type('sponsor',
+	array(
+		'labels'	=> array(
+			'name' 			=> __('Sponsors'),
+			'singular_name'	=> __('Sponsor')
+			),
+		'public'		=> true,
+		'has_archive'	=> true,
+		'menu_position'	=> 5,
+		'publicly_queryable' => true,
+		'supports' => array('title', 'thumbnail', 'revisions')
+	)
+);
+
+register_post_type('Careers',
+	array(
+		'labels'	=> array(
+			'name' 			=> __('Careers'),
+			'singular_name'	=> __('Career')
+			),
+		'public'		=> true,
+		'has_archive'	=> true,
+		'menu_position'	=> 5,
+		'publicly_queryable' => true,
+		'supports' => array('title', 'thumbnail', 'revisions')
+	)
+);
+
 
 
 }

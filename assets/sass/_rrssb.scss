@@ -299,14 +299,5 @@ $social-list: (
 		}
 	}
 }
-.rrssb-buttons li.twitter{background:none;}
-.rrssb-buttons li.twitter a{
-	background: none !important;
-	@include font-size(1.6);
-	text-transform: lowercase;
-	color: $linkcolor;
-	&:hover{
-		color: $linkaltcolor;
-	}
-}
+
 

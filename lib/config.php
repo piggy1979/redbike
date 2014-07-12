@@ -56,9 +56,7 @@ function roots_display_sidebar() {
     array(
       'is_404',
       'is_front_page',
-      'is_search', 
-      array('is_page', array('lineup', 'contact', 'schedule')),
-      array('is_singular', array('marcato_artist', 'marcato_show'))
+      'is_search'
     ),
     /**
      * Page template checks (via is_page_template())
@@ -66,7 +64,6 @@ function roots_display_sidebar() {
      */
     array(
     //  'template-custom.php',
-      'page-lineup.php'
     )
   );
 
