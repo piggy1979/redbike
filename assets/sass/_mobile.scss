@@ -1,0 +1,115 @@
+div#mobilecontainer {
+position: relative;
+padding-top: 94px;
+}
+.mainnavholder h1 a{
+	color:#fff;
+}
+#mobile_main li, #mobile_secondary li{
+	background-color:#333;
+	width:100%;
+	a{
+		color:#fff;
+		text-transform:uppercase;
+		font-family: $headerfont;
+		@include font-size(1.85);
+		padding: 10px 20px;
+		display:block;
+		border-bottom:1px solid #444;
+		&:hover{
+			text-decoration:none;
+			color: $linkcolor;
+		}
+	}
+}
+#mainnavmobile{
+	background-color:#000;
+
+}
+.mainnavholder{
+	padding: 10px 20px;
+	overflow: hidden;
+	position:fixed;
+	z-index:400;
+	width:100%;
+	background-color:#000;
+	.carot{
+		display:none;
+	}
+}
+#mainnavmobile h1{
+	@include font-size(1.7);
+	color:#fff;
+	font-weight:500;
+	text-align:left;
+	line-height:28px;
+}
+#mobile-icon{
+	position:relative;
+	height: 28px;
+	padding: 4px 10px;
+	width:38px;
+	float:right;
+}
+#mobile-icon span{
+	height:2px;
+	width:100%;
+	margin:3px 0;
+	background-color:#fff;
+	display:block;
+}
+#mainnavmobile nav{
+	width:100%;
+	padding-top:48px;
+	position:fixed;
+	z-index:399;
+	@include translateY(-100%);
+	@include transition-duration(0.5s);
+	@include transition-property(all);		
+}
+#mainnavmobile nav.active{
+	@include translateY(0);
+
+}
+/*specific issues on mobile devices */
+.news #mobilecontainer .main{
+//	margin-left: -19px;
+//	margin-right: -19px;
+}
+.schedule #mobilecontainer #mixincontainer .mix{
+	padding:19px;
+}
+#mobilecontainer section.mix {margin-bottom:20px;margin-top:20px;}
+#mobilecontainer .mix .articlesocial{
+display:none;
+}
+#mobilecontainer .mix .eventdescription p{
+	margin: 20px 0 10px;
+}
+.uparrow{right:38px;}
+#mobilecontainer header.banner{
+	display:none;
+}
+#mobilecontainer section{ margin-bottom:50px;}
+#mobilecontainer .morenews{width:100%; display:block;}
+#mobilecontainer #date-filter{
+	height:auto;
+	strong{
+		padding:0;
+	}
+	span{
+		height:45px;
+		padding:10px;
+	}
+}
+#mobilecontainer #date-filter li:first-child{
+	display:block;
+	width:100%;
+	float:none;
+	text-align:center;
+	span.month{
+		@include font-size(2);
+		display:block;
+		padding:10px;
+	}
+}

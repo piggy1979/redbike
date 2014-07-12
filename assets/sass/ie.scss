@@ -1,0 +1,140 @@
+@mixin font-size($sizeValue: 1.6) {
+  font-size: ($sizeValue * 10) + px;
+  font-size: $sizeValue + rem;
+}
+@import "compass";
+
+
+
+h1{
+	@include font-size(4);
+}
+.slidecontent h2{
+	@include font-size(6);
+}
+
+#emailform{
+	clear:none;
+	padding-top:1%;
+	padding-bottom:0;
+}
+
+.widget_text{
+	float:left;
+	width:60%
+}
+.widget_nav_menu{
+	float:right;
+	width:30%;
+}
+#copyright p{
+	float:left;
+}
+#copyright ul{
+	float:right;
+}
+#copyright ul li{
+	float:right;
+	padding-left:10px;
+}
+.hide{
+	display:block;
+}
+body{padding-top:58px;}
+.addpadding{padding: 0 39px;}
+.slidecontent .addpadding{padding: 0 80px;}
+#searchform label, #searchform input[type="text"]{
+	@include font-size(3.5);
+}
+
+#date-filter li{
+	@include font-size(3);
+}
+#date-filter span.month{
+	@include font-size(2);
+}
+#date-filter li{
+	width: auto;
+}
+#date-filter span.month{
+	display:block;
+}
+#lineup-filter li{
+	@include font-size(2);
+}
+#lineup-filter li span{
+	padding: 13px 10px;
+}
+#mixincontainer .mix .eventdescription{
+	width:60%;
+}
+.eventdetails{float:right;}
+.sites li{
+	display:block;
+}
+#lineupsel h2{
+	@include font-size(4.5);
+}
+#lineuplist strong{
+	padding:15px;
+}
+#lineuplist li.act{
+	@include font-size(2.5);
+}
+header .btn.buy{
+	display:block;
+}
+
+
+
+
+
+	#emailform{padding-top:2%;}
+	.slidecontent h2{
+	@include font-size(9.8);
+	}
+	#searchform label, #searchform input[type="text"]{
+		@include font-size(5);
+	}
+
+/* schedule dates */
+#date-filter li{
+	@include font-size(4);
+}
+#date-filter span.month{
+	@include font-size(3);
+}
+
+#filters form{
+	position:absolute;
+	bottom: 25px;
+	right:0;
+}
+#lineupsel h2{
+	@include font-size(6);
+}
+#lineuplist strong{
+	padding:20px;
+}
+#lineuplist li.act{
+	@include font-size(3);
+}
+#menu-primary-navigation li a, #stickymenu li a{
+	@include font-size(2);
+}
+.sites span em{display:inline;}
+.advert{clear:none;}
+.slide{background-repeat:no-repeat;}
+div.wrap, footer .container{
+	width:1000px !important;
+	margin-left: auto;
+	margin-right: auto;
+}
+.news-cta, .advert{
+	width:30%;
+	float: left;
+}
+.flexslider{background-color:#000000;}
+.socialicons{width:65%; float:left;}
+.socialicons li{margin-left:0 !important;}
+#emailform{width:35%; float:left;}

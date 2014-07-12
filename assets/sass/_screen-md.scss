@@ -1,0 +1,60 @@
+@media all and (min-width: 992px) {
+
+	#emailform{padding-top:2%;}
+	.slidecontent h2{
+	@include font-size(9.8);
+	}
+	#searchform label, #searchform input[type="text"]{
+		@include font-size(5);
+	}
+
+/* schedule dates */
+#date-filter li{
+	@include font-size(4);
+}
+#date-filter span.month{
+	@include font-size(3);
+}
+
+#filters form{
+	position:absolute;
+	bottom: 25px;
+	right:9px;
+}
+#lineupsel h2{
+	@include font-size(6);
+}
+#lineuplist strong{
+	padding:20px;
+}
+#lineuplist li.act{
+	@include font-size(3);
+}
+#menu-primary-navigation li a, #stickymenu li a{
+	@include font-size(2);
+}
+#menu-primary-navigation li a{
+	@include font-size(2.5);
+}
+.sites span em{display:inline;}
+.advert{clear:none;}
+#menu-primary-navigation li:after{
+	content: "/";
+	color:#fff;
+	display:inline-block;
+	font-family:arial, _sans;
+	margin-left:10px;
+	margin-right:5px;
+	font-weight:300;
+}
+#menu-primary-navigation li:last-child:after{
+	display:none;
+}
+div.pdf{
+	position:absolute;
+	right:9px;
+	top:20px;
+}
+
+//.home .maincontainer{width:992px;}
+}

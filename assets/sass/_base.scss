@@ -1,0 +1,224 @@
+/**
+* @ base css include. Base styling.
+**/
+
+@mixin font-size($sizeValue: 1.6) {
+  font-size: ($sizeValue * 10) + px;
+  font-size: $sizeValue + rem;
+}
+
+
+
+$bodyfont: 'Open Sans', sans-serif;
+$bodycolor: #333;
+$linkcolor: #2ccefc;
+$linkaltcolor:#2ddb77;
+$fadecolor: #999;
+$darkbuttonhover: #292929;
+$bright: #fff;
+$headerfont:"futura-pt",sans-serif;
+$confont:"futura-pt-condensed",sans-serif;
+$cursive:"Grand Hotel", cursive;
+//$headerfont:"futura-pt-condensed",sans-serif;
+$h2size:3rem;
+$h3size:2.4rem;
+$h4size:1.3rem;
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+html{
+	font-size:62.5%;
+}
+body{
+	font-family: $bodyfont;
+	color:#333;
+	@include font-size(1.4);
+}
+h1{
+	font-family:$headerfont;
+	font-weight:800;
+	@include font-size(2.5);
+	text-transform:uppercase;
+}
+h2,h3{
+	font-family:$confont;
+	font-weight:500;
+	font-style: oblique;
+	@include font-size(3);
+}
+h3{
+	@include font-size(2.4);
+}
+h4{
+	@include font-size(1.3);
+	font-weight:500;
+}
+
+p,li{
+	@include font-size(1.3);
+	line-height:21px;
+}
+.main p{
+	margin-bottom:1em;
+}
+article li, main li{
+	margin-left: 1em;
+}
+a{
+
+	text-decoration:none;
+}
+a:hover, a:focus{
+	color: $linkaltcolor;
+	text-decoration: none;
+}
+article a, section a{
+	color: $linkcolor;
+}
+h5{
+	color:#999;
+	@include font-size(1.6);
+	font-style: oblique;
+	font-family: $bodyfont;
+	margin-bottom:30px;
+}
+a.btn , input.button, a.back, .main .search-submit{
+	font-family: $bodyfont;
+	font-size:1.4rem;
+	color:#fff;
+	background-color: $linkcolor;
+	display:inline-block;
+	font-weight:400;
+	padding:10px 15px;
+	text-decoration:none;
+	@include transition-duration(0.3s);
+	@include transition-property(background-color);	
+	padding:10px 35px;
+	border:0;
+}
+.single-marcato_artist .maincontainer{
+	position:relative;
+}
+a.back{
+	background-color:#000;
+	position:absolute;
+	left:19px;
+	top:0;
+}
+.wrap{
+	overflow:hidden;
+}
+.btn.buy, input.button{
+	font-family: $cursive;
+	@include font-size(2.2);
+	padding:13px 18px;
+	-webkit-font-smoothing:antialiased;
+}
+header .btn.buy{
+	@include font-size(2.8);
+	/*display:none;*/
+	position:absolute;
+	right:30px;
+	top:30px;
+}
+.mobile.buy.btn{
+	position:absolute;
+	top:48px;
+	width:100%;
+	z-index:100;
+	left:0;
+	text-align:center;
+
+}
+
+.btn:hover, .button:hover{
+	background-color: $linkaltcolor;
+}
+a.bko{
+	width:145px;
+	height: 57px;
+	font-family: $cursive;
+	@include font-size(2.5);
+	background: url('/img/blackorangebutton.png') no-repeat;
+	background-size: 145px 57px;
+	text-align:center;
+	padding-left:0px;
+	padding-right:10px;
+	padding-top:12px;
+	margin-top:20px;
+	margin-bottom:50px;
+	margin-right:5px;
+	-webkit-font-smoothing:antialiased;
+	display:inline-block;
+	@include translate(0px, 0px);
+	@include transition-duration(0.2s);
+	@include transition-property(all);	
+	&:hover{
+		background-color: transparent;
+		@include translate(3px, 2px);
+	}
+}
+a.watchvid, a.profile{
+	background-color:#000;
+	display:block;
+	background:url('/img/watch.png') no-repeat;
+	width:146px;
+	height:58px;
+	background-size: 146px 58px;
+	text-indent:-10000em;
+}
+a.profile{
+	background: url('/img/profile.png') no-repeat;
+	background-size: 146px 58px;
+	margin-top:15px;
+}
+.hide{
+	display:none;
+}
+.addpadding{padding: 0 19px; position:relative;}
+.slidecontent .addpadding{padding: 0 50px;}
+.contact h1{
+	margin-left:19px;
+}
+span.tag{
+	@include font-size(2);
+	font-family: $confont;
+	font-style:oblique;
+	color:#fff;
+	background-color:$linkaltcolor;
+	padding:4px;
+	text-transform:uppercase;
+}
+.advertlink img{
+	width:100%;
+	max-width:300px;
+}
+.morenews{
+	color:$linkcolor;
+	clear:both;
+	margin-top:70px;
+	padding: 30px 0;
+	text-align:center;
+	background-color: #f7f7f7;
+	@include transition-duration(0.2s);
+	@include transition-property(all);	
+	&:hover{
+		background-color:#000;
+		color:#fff;
+	}
+}
+.main .search-form{
+	margin-top:20px;	
+}
+.main .search-field{
+	border:1px solid #c7c7c7;
+	padding:9px;
+}
+.main .search-form label{
+	display:none;
+}

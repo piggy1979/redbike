@@ -1,0 +1,15 @@
+/* line 1, ../sass/test.scss */
+a {
+  color: #fff;
+}
+
+/* line 4, ../sass/test.scss */
+a:hover {
+  color: #777;
+  font-size: 34px;
+}
+
+/* line 8, ../sass/test.scss */
+#lineuplist li {
+  display: none;
+}

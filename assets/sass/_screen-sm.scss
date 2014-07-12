@@ -1,0 +1,90 @@
+@media all and (min-width: 768px) {
+h1{
+	@include font-size(4);
+}
+.slidecontent h2{
+	@include font-size(6);
+}
+
+#emailform{
+	clear:none;
+	padding-top:1%;
+	padding-bottom:0;
+}
+
+.widget_text{
+	float:left;
+	width:60%
+}
+.widget_nav_menu{
+	float:right;
+	width:30%;
+}
+#copyright p{
+	float:left;
+}
+#copyright ul{
+	float:right;
+}
+#copyright ul li{
+	float:right;
+	padding-left:10px;
+}
+.hide{
+	display:block;
+}
+body{padding-top:43px;}
+.addpadding{padding: 0 39px;}
+.slidecontent .addpadding{padding: 0 80px;}
+#searchform label, #searchform input[type="text"]{
+	@include font-size(3.5);
+}
+
+#date-filter li{
+	@include font-size(3);
+}
+#date-filter span.month{
+	@include font-size(2);
+}
+#date-filter li{
+	width: auto;
+}
+#date-filter span.month{
+	display:block;
+}
+#lineup-filter li{
+	@include font-size(2);
+}
+#lineup-filter li span{
+	padding: 13px 10px;
+}
+#mixincontainer .mix .eventdescription{
+	width:60%;
+}
+#mixincontainer .mix .eventdescription h3{
+	@include font-size(3);
+}
+#mixincontainer .mix .eventdescription strong{
+	@include font-size(2);
+}
+.eventdetails{float:right;}
+
+.sites li{
+	display:block;
+}
+#lineupsel h2{
+	@include font-size(4.5);
+}
+#lineuplist strong{
+	padding:15px;
+}
+#lineuplist li.act{
+	@include font-size(2.5);
+}
+header .btn.buy{
+	display:block;
+}
+
+
+}
+
