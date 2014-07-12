@@ -28,6 +28,21 @@ register_post_type('featured',
 	)
 );
 
+register_post_type('stories',
+	array(
+		'labels'	=> array(
+			'name' 			=> __('Stories'),
+			'singular_name'	=> __('Story')
+			),
+		'public'		=> true,
+		'has_archive'	=> false,
+		'menu_position'	=> 5,
+		'publicly_queryable' => true,
+		'supports' => array('title', 'thumbnail', 'editor', 'revisions')
+	)
+);
+
+
 register_post_type('sponsor',
 	array(
 		'labels'	=> array(
@@ -90,20 +105,46 @@ function featuredSlides($n){
 		$image = wp_get_attachment_image_src($imageID, 'featured');
 
 
-		$background = " style='background-image: url(".$image[0].")' ";
-		$output .= "<div class='slide' ".$background.">\n";
-		$output .= "<div class='slidecontent'><div class='addpadding'>\n";
+		$background = $image[0];
+		$output .= "<div class='slide'>\n";
+		$output .= "<img src='".$background."'>\n";
+		$output .= "<div class='slidecontent'>\n";
 		$output .= "<h2>".$post->post_title."</h2>\n";
-		if(get_post_meta($post->ID, 'url')[0] && get_post_meta($post->ID, 'link_title')[0] ){
-		$output .= "<a href='". get_post_meta($post->ID, 'url')[0] ."' class='btn bko'>". get_post_meta($post->ID, 'link_title')[0] ."</a>\n";
-		}
-		$output .= "</div></div>\n";
+		$output .= "</div>\n";
 		$output .= "</div>\n";
 	}
 
 	return $output;
 }
 
+function getStories($n=3){ // $n is the amount of stories to display.
+	$args = array(
+		'post_type'			=> 'stories',
+		'posts_per_page'	=> $n
+	);
+
+	$query = new WP_Query($args);
+	$output = "";
+
+	foreach($query->posts as $post){
+		$imageID = get_post_thumbnail_id($post->ID);
+		$image = wp_get_attachment_image_src($imageID, 'large');
+
+		$output .= "<article>\n";
+
+		$output .= "<h2>".$post->post_title."</h2>\n";
+		$output .= "<div class='content'>\n";
+		$output .= wpautop($post->post_content);
+		$output .= "</div>";
+
+		$output .= "</article>\n";
+
+	}
+
+	return $output;	
+
+
+}
 
 function getCat($id){
 	$cats = get_the_category($id);

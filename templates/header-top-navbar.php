@@ -1,17 +1,4 @@
 
-<script type="text/javascript">
-$(function(){
-  $(".maps").fancybox({
-    fitToView: true,
-    maxWidth:1000,
-    maxHeight: 700,
-    openEffect: 'none',
-    closeEffect: 'none',
-    autoSize: false
-  });
-});
-</script>
-
 <?php if(wpmd_is_device()) : ?>
 <script type="text/javascript">
 $(function(){
@@ -61,7 +48,7 @@ if( is_search() || is_404() ){
 <?php if( wpmd_is_notphone() ) : ?>
 
 <header id="mainnav">
-    <div class="addpadding">
+    <div class="inner">
     <a href="<?php echo home_url(); ?>" class="logo hide"><img src="/img/logo-pop.png" alt="<?php bloginfo('name'); ?>"></a>
 
     <nav class="collapse navbar-collapse" role="navigation">
@@ -71,10 +58,9 @@ if( is_search() || is_404() ){
         endif;
       ?>
     </nav>
-
-    
-
-
+      <div id="contactdetails">
+      <?php echo stripslashes(get_option('default_contact')); ?>
+      </div>
     </div>
 </header>
 
