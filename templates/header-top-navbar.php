@@ -49,12 +49,12 @@ if( is_search() || is_404() ){
 
 <header id="mainnav">
     <div class="inner">
-    <a href="<?php echo home_url(); ?>" class="logo hide"><img src="/img/logo-pop.png" alt="<?php bloginfo('name'); ?>"></a>
+    <a href="<?php echo home_url(); ?>" class="logo hide"><img src="<?php echo home_url(); ?>/wp-content/themes/redbike/assets/img/red-logo.png" alt="<?php bloginfo('name'); ?>"></a>
 
     <nav class="collapse navbar-collapse" role="navigation">
       <?php
         if (has_nav_menu('primary_navigation')) :
-          wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'nav navbar-nav'));
+          wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'nav navbar-nav', 'walker'=> new Add_Data));
         endif;
       ?>
     </nav>

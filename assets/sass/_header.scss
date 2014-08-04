@@ -1,0 +1,46 @@
+header#mainnav{
+	position:fixed;
+	z-index:1000;
+	background-color:#fff;
+	border-right:1px solid #ccc;
+	height:100%;
+	width:200px;
+}
+header#mainnav .logo img{
+	width:100%;
+}
+#menu-primary-navigation{
+		margin:10px;
+}
+#menu-primary-navigation a{
+	border-left:3px solid #fff;
+	color:#333;
+	padding:8px 10px;
+	display:block;
+	border-top:1px solid #ccc;
+	text-decoration:none;
+	font-family: $confont;
+	outline:none;
+	@include transition-duration(0.5s);
+	@include transition-property(all);
+	&:hover{
+		color: $linkcolor;
+		border-left:3px solid $linkaltcolor;
+	}
+}
+#menu-primary-navigation li a.active{
+		color: $linkcolor;
+		border-left:3px solid $linkaltcolor;	
+}
+main section, footer {
+	padding-left:200px;
+}
+#contactdetails{
+	position:absolute;
+	bottom:50px;
+	left:20px;
+	font-family:$bodyfont;
+	font-weight:300;
+	line-height:160%;
+	@include font-size(0.8);
+}	

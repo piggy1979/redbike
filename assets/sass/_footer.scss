@@ -1,0 +1,72 @@
+
+
+footer{
+	background: url('/red/wp-content/themes/redbike/assets/img/footer.jpg') no-repeat;
+	background-position: 50% 50%;
+	background-size: cover;
+	overflow:hidden;
+	padding-top:20px;
+	padding-bottom:20px;
+}
+footer{
+			font-family: $bodyfont;
+
+	textarea{
+		width:100%;
+	}
+	.content, label{
+		color:#444;
+		font-family: $bodyfont;
+		line-height:160%;
+		p{
+			margin-bottom:1em;
+		}
+	}
+	.content{
+		padding-top:80px;
+	}
+	input, textarea{
+		border:1px solid #fff;
+		@include border-radius(5px);
+		padding:5px;
+		@include font-size(0.8);
+		background-color:rgba(255,255,255,0.5);
+		margin-top:5px;
+		margin-bottom:5px;
+	}
+	.gform_validation_container{
+		display:none;
+	}
+	.gform_button{
+		background-color:#fff;
+		font-weight:600;
+		@include transition-property(background-color);
+  		@include transition-duration(0.3s);
+		&:hover{
+			background-color:$linkcolor;
+		}
+	}
+	.validation_error{
+		display:none;
+	}
+	.validation_message{
+		background-color:#fff;
+		border:1px solid $linkcolor;
+		color: $linkcolor;
+		font-weight:600;
+		@include font-size(0.7);
+		padding:5px;
+		display:inline-block;
+	}
+	.gfield_error input{
+		border-color:$linkcolor;
+	}
+	#copyright{
+		clear:both;
+		padding-top:50px;
+		padding-right:20px;
+		text-align:right;
+		margin-bottom:20px;
+		@include font-size(0.7);
+	}
+}

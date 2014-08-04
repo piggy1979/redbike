@@ -1,74 +1,11 @@
+(function(e){"use strict";var t="ScrollIt",n="1.0.3";var r={upKey:38,downKey:40,easing:"linear",scrollTime:600,activeClass:"active",onPageChange:null,topOffset:0};e.scrollIt=function(t){var n=e.extend(r,t),i=0,s=e("[data-scroll-index]:last").attr("data-scroll-index");var o=function(t){if(t<0||t>s)return;var r=e("[data-scroll-index="+t+"]").offset().top+n.topOffset+1;e("html,body").animate({scrollTop:r,easing:n.easing},n.scrollTime)};var u=function(t){var n=e(t.target).closest("[data-scroll-nav]").attr("data-scroll-nav")||e(t.target).closest("[data-scroll-goto]").attr("data-scroll-goto");o(parseInt(n))};var a=function(t){var r=t.which;if(e("html,body").is(":animated")&&(r==n.upKey||r==n.downKey)){return false}if(r==n.upKey&&i>0){o(parseInt(i)-1);return false}else if(r==n.downKey&&i<s){o(parseInt(i)+1);return false}return true};var f=function(t){if(n.onPageChange&&t&&i!=t)n.onPageChange(t);i=t;e("[data-scroll-nav]").removeClass(n.activeClass);e("[data-scroll-nav="+t+"]").addClass(n.activeClass)};var l=function(){var t=e(window).scrollTop();var r=e("[data-scroll-index]").filter(function(r,i){return t>=e(i).offset().top+n.topOffset&&t<e(i).offset().top+n.topOffset+e(i).outerHeight()});var i=r.first().attr("data-scroll-index");f(i)};e(window).on("scroll",l).scroll();e(window).on("keydown",a);e("body").on("click","[data-scroll-nav], [data-scroll-goto]",function(e){e.preventDefault();u(e)})}})(jQuery)
 
-/*
- Ridiculously Responsive Social Sharing Buttons
- Team: @dbox, @seagoat
- Site: http://www.kurtnoble.com/labs/rrssb
- Twitter: @therealkni
+function scrollFunction(){
+	var height = $(window).scrollTop();
+	if(height >= 100){
 
-        ___           ___
-       /__/|         /__/\        ___
-      |  |:|         \  \:\      /  /\
-      |  |:|          \  \:\    /  /:/
-    __|  |:|      _____\__\:\  /__/::\
-   /__/\_|:|____ /__/::::::::\ \__\/\:\__
-   \  \:\/:::::/ \  \:\~~\~~\/    \  \:\/\
-    \  \::/~~~~   \  \:\  ~~~      \__\::/
-     \  \:\        \  \:\          /__/:/
-      \  \:\        \  \:\         \__\/
-       \__\/         \__\/
-*/
-
-
-;(function(window, jQuery, undefined) {
-	'use strict';
-
-
-	var popupCenter = function(url, title, w, h) {
-		// Fixes dual-screen position                         Most browsers      Firefox
-		var dualScreenLeft = window.screenLeft !== undefined ? window.screenLeft : screen.left;
-		var dualScreenTop = window.screenTop !== undefined ? window.screenTop : screen.top;
-
-		var width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
-		var height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
-
-		var left = ((width / 2) - (w / 2)) + dualScreenLeft;
-		var top = ((height / 3) - (h / 3)) + dualScreenTop;
-
-		var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
-
-		// Puts focus on the newWindow
-		if (window.focus) {
-			newWindow.focus();
-		}
-	};
-
-	var waitForFinalEvent = (function () {
-		var timers = {};
-		return function (callback, ms, uniqueId) {
-			if (!uniqueId) {
-				uniqueId = "Don't call this twice without a uniqueId";
-			}
-			if (timers[uniqueId]) {
-				clearTimeout (timers[uniqueId]);
-			}
-			timers[uniqueId] = setTimeout(callback, ms);
-		};
-	})();
-
-	/*
-	 * Event listners
-	 */
-
-	jQuery('.rrssb-buttons a.popup').on('click', function(e){
-		var _this = jQuery(this);
-		popupCenter(_this.attr('href'), _this.find('.text').html(), 580, 470);
-		e.preventDefault();
-	});
-
-
-})(window, jQuery);
-
-/*
+	}
+}
 function resizeFunction(){
 	var bannerHeight = $('header.banner').height();
 	var windowHeight = $(window).height();
@@ -81,21 +18,10 @@ function resizeFunction(){
 		$(this).css({"marginTop" : newheight+"px"});
 	});
 }
-*/
-function scrollFunction(){
-
-	var height = $(window).scrollTop();
-	if(height >= 100){
-	$stickymenu.addClass('fixed');
-	}else{
-	$stickymenu.removeClass("fixed");
-	}
-}
-
-var scrolldown = _.throttle(scrollFunction, 100);
-var slowdown = _.throttle(resizeFunction, 100);
-$(window).resize(slowdown);
-$(window).scroll(scrolldown);
+//var scrolldown = _.throttle(scrollFunction, 100);
+//var slowdown = _.throttle(resizeFunction, 100);
+//$(window).resize(slowdown);
+//$(window).scroll(scrolldown);
 
 
 function openClose(evt){
@@ -174,22 +100,26 @@ function dropdownMenu(){
 	});
 }
 
+
+
 function init(){
 	// base jquery mod prep
-	if(!document.getElementById('mainnavmobile')){ 
-	$("#menu-primary-navigation").clone().attr('id', 'stickymenu').appendTo('body');
-	$stickymenu = $("#stickymenu");
+$.scrollIt();
+	if(!document.getElementById('mainnavmobile')){
+		
+//	$("#menu-primary-navigation").clone().attr('id', 'stickymenu').appendTo('body');
+//	$stickymenu = $("#stickymenu");
+//	console.log($stickymenu);
 	}
 
-//	resizeFunction();
+	//resizeFunction();
 	mobileNav();
-	if(!document.getElementById('mainnavmobile')){ 
+	if(!document.getElementById('mainnavmobile')){
 		dropdownMenu();
 	}
 }
 
 $(function(){
-
 	init();
 	
 	$(".flexslider").flexslider({
@@ -198,5 +128,5 @@ $(function(){
 		animationSpeed: 400,
 		directionNav: false
 	});
-
+	
 });

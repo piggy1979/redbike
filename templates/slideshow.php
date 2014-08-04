@@ -1,7 +1,7 @@
 
 <?php // get_template_part('templates/page', 'header'); ?>
 
-<div class="flexslider">
+<div class="flexslider" data-scroll-index="4">
 	<div class="slides">
 	<?php
 		echo featuredSlides(5);

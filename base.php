@@ -32,9 +32,7 @@
       <?php if (roots_display_sidebar()) : ?>
         <aside class="sidebar <?php echo roots_sidebar_class(); ?>" role="complementary">
           <?php 
-          if(get_post_type($post) == 'post' || $post->post_name == "news" || is_archive() || is_woocommerce()){
-            include roots_sidebar_path(); 
-          }else{
+
             
               $parent = null;
               if ($post->post_parent) {
@@ -88,18 +86,22 @@
               echo "</ul>\n";
               echo "</section>\n";
               }
-          }
+          
           ?>
         </aside><!-- /.sidebar -->
       <?php endif; ?>
-      <main class="main <?php echo roots_main_class(); ?>" role="main">
+      <main class="main col-sm-12 container" role="main">
         <?php  include roots_template_path(); ?>
       </main><!-- /.main -->
 
     </div><!-- /.content -->
   </div><!-- /.wrap -->
 
-  <?php get_template_part('templates/footer'); ?>
+  <?php 
+if(is_front_page()){
+ get_template_part('templates/footer');
+}
+  ?>
 </div> <!-- end of #container -->
 </body>
 </html>

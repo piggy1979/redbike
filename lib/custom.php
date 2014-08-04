@@ -67,7 +67,7 @@ register_post_type('Careers',
 		'has_archive'	=> true,
 		'menu_position'	=> 5,
 		'publicly_queryable' => true,
-		'supports' => array('title', 'thumbnail', 'revisions')
+		'supports' => array('title', 'thumbnail','editor', 'revisions')
 	)
 );
 
@@ -142,9 +142,95 @@ function getStories($n=3){ // $n is the amount of stories to display.
 	}
 
 	return $output;	
+}
 
+function getFooter($id){
+	$post = get_post($id);
+	$content .= "<div class='content'>" . apply_filters('the_content', $post->post_content) . "</div>\n"; 
+	return $content;
+}
+
+function getClientPage($id, $count=6){
+	$post = get_post($id);
+	$content .= "<article>\n"; 
+	$content .= "<h2>" . apply_filters('the_title', $post->post_title) . "</h2>\n";
+	$content .= "<div class='content'>" . apply_filters('the_content', $post->post_content) . "</div>\n"; 
+	
+	//pull client listing.
+	$content .= pullClients($count);
+
+	$content .= "</article>\n";
+	return $content; 
+}
+
+
+function pullClients($count){
+		$args = array(
+		'post_type'			=> 'sponsor',
+		'posts_per_page'	=> $n,
+		'order'				=> 'ASC',
+		'orderby'			=> 'menu_order'
+	);
+
+	$query = new WP_Query($args);
+	$output = "";
+
+	foreach($query->posts as $post){
+		$imageID = get_post_thumbnail_id($post->ID);
+		$image = wp_get_attachment_image_src($imageID, 'sponsor');
+
+		$output .= "<div id='sponsors'>\n";
+		if(get_post_meta($post->ID, 'url')[0]){
+			$output .= "<a class='col-xs-4' href='".get_post_meta($post->ID, 'url')[0]."'>\n";
+			$output .= "<img src='".$image[0]."' alt='".$post->post_title."' width='100%'>\n";
+			$output .= "</a>\n";
+		}else{
+			$output .= "<div class='col-xs-4'>\n";
+			$output .= "<img src='".$image[0]."' alt='".$post->post_title."' width='100%'>\n";
+			$output .= "</div>\n";
+		}
+		$output .= "</div>\n";
+	}
+	return $output;
+}
+
+function getCareers($id, $count=6){
+	$post = get_post($id);
+	$content .= "<article>\n"; 
+	$content .= "<h2>" . apply_filters('the_title', $post->post_title) . "</h2>\n";
+	$content .= "<div class='content'>" . apply_filters('the_content', $post->post_content) . "</div>\n"; 
+	
+	//pull Job listing.
+
+	if(pullJobs($count) == null) return;
+	$content .= "<div class='row'>\n";
+	$content .= pullJobs($count);
+	$content .= "</div>\n";
+	$content .= "</article>\n";
+	return $content; 
+}
+
+function pullJobs($couut){
+	$args = array(
+		'post_type'			=> 'Careers',
+		'posts_per_page'	=> $n,
+		'post_status'		=> 'publish',
+		'order'				=> 'ASC',
+		'orderby'			=> 'menu_order'
+	);
+
+	$query = new WP_Query($args);
+	$output = null;
+	foreach($query->posts as $post){
+		$output .= "<div class='col-md-6 content'>\n";
+		$output .= "<h3>" . $post->post_title ."</h3>\n";
+		$output .= wpautop($post->post_content); 
+		$output .= '</div>';
+	}
+	return $output;
 
 }
+
 
 function getCat($id){
 	$cats = get_the_category($id);
@@ -214,7 +300,20 @@ class Page_List_Walker extends Walker_page {
   }
 
 }
-
+class Add_Data extends Walker_Nav_menu{
+  function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
+  {
+ // 	print_r($item);
+	$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+  	$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
+    $class_names = ' class="'. esc_attr( $class_names ) . '"';
+    $output .= sprintf( "\n<li><a %s href='%s'%s>%s</a>\n",
+    		$class_names,
+            $item->url,
+            " data-scroll-nav='" . $item->object_id . "' ",
+            $item->title );
+  }
+ }
 
 class Page_Options_Walker extends Walker_page{
   function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
@@ -355,9 +454,9 @@ class IMP_Widget_Categories extends WP_Widget_Categories {
 }
 
 
-################################
-###		DASHBOARD TRIAL      ###
-################################
+###########################
+###		DASHBOARD       ###
+###########################
 
 function add_default_contact(){
 	global $wp_meta_boxes;
