@@ -1,12 +1,13 @@
 
 
 footer{
-	background: url('/red/wp-content/themes/redbike/assets/img/footer.jpg') no-repeat;
+	background: url('/wp-content/themes/redbike/assets/img/footer.jpg') no-repeat;
 	background-position: 50% 50%;
 	background-size: cover;
 	overflow:hidden;
 	padding-top:20px;
 	padding-bottom:20px;
+	clear:both;
 }
 footer{
 			font-family: $bodyfont;
